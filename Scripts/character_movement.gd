@@ -13,9 +13,17 @@ const MAX_JUMPS := 2
 var is_climbing := false
 var is_running := false
 var jumps_left := MAX_JUMPS
-var is_double_jumping := false  # NEW
+var is_double_jumping := false
+var was_on_wall
 
 @onready var animated_sprite = $Animated_Texture
+@onready var wall_shapecast = $ShapeCast2D
+
+func check_for_wall() -> bool:
+	if is_on_wall():
+		return true
+		
+	return wall_shapecast.is_colliding()
 
 func handle_animations(direction):
 	if is_climbing:
@@ -45,21 +53,23 @@ func handle_animations(direction):
 
 func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
-
+	
 	if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and Input.is_action_pressed("run"):
 		is_running = true
 
 	if is_on_floor():
 		jumps_left = MAX_JUMPS
 		is_double_jumping = false
-
+	
 	# 1. Check Wall State
-	if is_on_wall() and direction != 0:
+	var near_wall = check_for_wall()
+	
+	if near_wall and not is_on_floor():
 		if not is_climbing:
 			is_climbing = true
 			velocity.y = 0
 	else:
-		if not is_on_wall() or is_on_floor():
+		if not near_wall or is_on_floor():
 			is_climbing = false
 
 	# 2. Handle Movement Physics
@@ -80,7 +90,7 @@ func _physics_process(delta):
 		if not is_on_floor():
 			velocity.y += GRAVITY * delta
 
-		if Input.is_action_just_pressed("ui_accept") and jumps_left > 0 and not Input.is_action_pressed("crouch"):
+		if Input.is_action_just_pressed("ui_accept") and jumps_left > 0:
 			is_double_jumping = jumps_left < MAX_JUMPS
 			jumps_left -= 1
 			velocity.y = JUMP_VELOCITY
@@ -95,4 +105,12 @@ func _physics_process(delta):
 	# 3. Apply Animations and Physics Engine
 	handle_animations(direction)
 	move_and_slide()
+	
+	if was_on_wall != is_on_wall():
+		if is_on_wall():
+			print("Climbing...")
+		else:
+			print("Not climbing...")
+	
 	is_running = false
+	was_on_wall = is_on_wall()
