@@ -23,6 +23,10 @@ window/size/extend_to_title=true
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 
+[global_group]
+
+player=""
+
 [input]
 
 ui_left={

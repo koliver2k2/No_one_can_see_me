@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const RUN_SPEED := 280
 const WALK_SPEED := 180
@@ -15,6 +16,11 @@ var is_running := false
 var jumps_left := MAX_JUMPS
 var is_double_jumping := false
 var was_on_wall
+
+var is_in_light = false
+var is_hidden = false
+
+var sound := 0
 
 @onready var animated_sprite = $Animated_Texture
 @onready var wall_shapecast = $ShapeCast2D
@@ -61,7 +67,6 @@ func _physics_process(delta):
 		jumps_left = MAX_JUMPS
 		is_double_jumping = false
 	
-	# 1. Check Wall State
 	var near_wall = check_for_wall()
 	
 	if near_wall and not is_on_floor():
@@ -72,7 +77,6 @@ func _physics_process(delta):
 		if not near_wall or is_on_floor():
 			is_climbing = false
 
-	# 2. Handle Movement Physics
 	if is_climbing:
 		var climb_direction = Input.get_axis("ui_up", "ui_down")
 		velocity.y = climb_direction * CLIMB_SPEED
@@ -97,10 +101,12 @@ func _physics_process(delta):
 			if is_running:
 				velocity.x = direction * RUN_JUMP_VELOCITY_X
 
-		if is_running and is_on_floor():
-			velocity.x = direction * RUN_SPEED
-		else:
-			velocity.x = direction * WALK_SPEED
+	if is_running and is_on_floor():
+		velocity.x = direction * RUN_SPEED
+		sound = 10
+	else:
+		velocity.x = direction * WALK_SPEED
+		sound = 4
 
 	# 3. Apply Animations and Physics Engine
 	handle_animations(direction)
@@ -114,3 +120,19 @@ func _physics_process(delta):
 	
 	is_running = false
 	was_on_wall = is_on_wall()
+
+func _on_street_light_player_entered_light() -> void:
+	print("Player entered light...")
+	is_in_light = true
+
+func _on_street_light_player_left_light() -> void:
+	print("Player left the light...")
+	is_in_light = false
+
+func _on_hide_object_player_entered_hide() -> void:
+	print("Player entered hiding...")
+	is_hidden = true
+
+func _on_hide_object_player_left_hide() -> void:
+	print("Player left hiding...")
+	is_hidden = false
