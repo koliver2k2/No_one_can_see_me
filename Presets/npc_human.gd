@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name NPC_Human
 
-const WALK_SPEED := 180
+const WALK_SPEED := 400
 const TIME_PER_STATE: float = 2.0
 
 @onready var animated_sprite = $AnimatedSprite2D

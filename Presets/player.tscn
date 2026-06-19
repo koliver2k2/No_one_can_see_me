@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dl1s550o7eard" path="res://Free/Main Characters/Mask Dude/Jump (32x32).png" id="6_c3373"]
 [ext_resource type="Texture2D" uid="uid://dx7wr2ntwxj4u" path="res://Free/Main Characters/Mask Dude/Run (32x32).png" id="7_vnv5g"]
 [ext_resource type="Texture2D" uid="uid://v2jyfpn6ebep" path="res://Free/Main Characters/Mask Dude/Wall Jump (32x32).png" id="8_nsvnu"]
+[ext_resource type="PackedScene" uid="uid://bffr6x7hoa5w1" path="res://Presets/player_cam.scn" id="9_63l2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfk4m"]
-size = Vector2(24.5, 32)
+size = Vector2(24.5, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq1ik"]
 atlas = ExtResource("2_63l2h")
@@ -441,19 +442,29 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63tfn"]
 
+[sub_resource type="Gradient" id="Gradient_63l2h"]
+offsets = PackedFloat32Array(0.06779661, 0.7669492)
+colors = PackedColorArray(0.6434545, 0.6434545, 0.6434545, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_njqtd"]
+gradient = SubResource("Gradient_63l2h")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=576746737 groups=["player"]]
 z_index = 1
-scale = Vector2(2, 2)
+scale = Vector2(5, 5)
 collision_layer = 2
 script = ExtResource("1_63tfn")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2001270521]
-position = Vector2(1.25, 0)
+position = Vector2(1.25, 1.5)
 shape = SubResource("RectangleShape2D_nfk4m")
 
 [node name="Animated_Texture" type="AnimatedSprite2D" parent="." unique_id=30701586]
 sprite_frames = SubResource("SpriteFrames_42l1d")
-animation = &"jump"
+animation = &"idle"
+frame_progress = 0.20084605
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="." unique_id=693922416]
 modulate = Color(0.18431373, 0.22352941, 0.83137256, 1)
@@ -461,3 +472,11 @@ position = Vector2(1.1904602, 0.5952225)
 scale = Vector2(1.293, 0.771)
 shape = SubResource("RectangleShape2D_63tfn")
 target_position = Vector2(0, 0)
+
+[node name="Camera2D" parent="." unique_id=51859799 instance=ExtResource("9_63l2h")]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=402680174]
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_njqtd")
+texture_scale = 6.0

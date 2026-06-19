@@ -1,11 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
-const RUN_SPEED := 280
-const WALK_SPEED := 180
-const CLIMB_SPEED := 150
-const JUMP_VELOCITY := -350
-const RUN_JUMP_VELOCITY_X = 520
+const RUN_SPEED := 800
+const WALK_SPEED := 400
+const CLIMB_SPEED := 400
+const JUMP_VELOCITY := -550
+const JUMP_VELOCITY_X = 12720
 const WALL_JUMP_X := 400
 const WALL_JUMP_Y := -450
 const GRAVITY := 1000
@@ -98,8 +98,7 @@ func _physics_process(delta):
 			is_double_jumping = jumps_left < MAX_JUMPS
 			jumps_left -= 1
 			velocity.y = JUMP_VELOCITY
-			if is_running:
-				velocity.x = direction * RUN_JUMP_VELOCITY_X
+			velocity.x = direction * JUMP_VELOCITY_X
 
 	if is_running and is_on_floor():
 		velocity.x = direction * RUN_SPEED
