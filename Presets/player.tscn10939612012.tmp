@@ -184,21 +184,21 @@ region = Rect2(2400, 0, 400, 800)
 atlas = ExtResource("7_njqtd")
 region = Rect2(2800, 0, 400, 800)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bpc77"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro6hi"]
 atlas = ExtResource("5_njqtd")
-region = Rect2(1200, 0, 400, 800)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8xew"]
-atlas = ExtResource("5_njqtd")
-region = Rect2(800, 0, 400, 800)
+region = Rect2(0, 0, 400, 800)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt8hb"]
 atlas = ExtResource("5_njqtd")
 region = Rect2(400, 0, 400, 800)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ro6hi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8xew"]
 atlas = ExtResource("5_njqtd")
-region = Rect2(0, 0, 400, 800)
+region = Rect2(800, 0, 400, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpc77"]
+atlas = ExtResource("5_njqtd")
+region = Rect2(1200, 0, 400, 800)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thyf1"]
 atlas = ExtResource("8_njqtd")
@@ -437,23 +437,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bpc77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q8xew")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rt8hb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ro6hi")
-}],
-"loop": false,
-"name": &"trapdoor_down",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ro6hi")
 }, {
 "duration": 1.0,
@@ -465,9 +448,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bpc77")
 }],
-"loop": false,
-"name": &"trapdoor_up",
-"speed": 4.0
+"loop": true,
+"name": &"trapdoor",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -531,11 +514,12 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njqtd"]
 radius = 6.7000003
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thyf1"]
-size = Vector2(16.700005, 19.01099)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5oul"]
+radius = 6.7000003
+height = 17.56044
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5oul"]
-size = Vector2(12.805, 41.233)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c3373"]
+radius = 6.7000003
 
 [sub_resource type="Gradient" id="Gradient_l8n6v"]
 offsets = PackedFloat32Array(0.06779661, 0.7669492)
@@ -559,25 +543,25 @@ modulate = Color(0.427493, 0.42749307, 0.42749307, 1)
 position = Vector2(0, -15.885)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_42l1d")
-animation = &"climb"
+animation = &"idle"
 
 [node name="Main_Collision" type="CollisionShape2D" parent="." unique_id=2001270521]
-visible = false
 position = Vector2(0.3, -1.82)
 scale = Vector2(0.785, 1.18)
 shape = SubResource("CapsuleShape2D_njqtd")
-disabled = true
 
 [node name="Crouch_Collision" type="CollisionShape2D" parent="." unique_id=1747887563]
-position = Vector2(0, 7.35)
-scale = Vector2(0.65, -0.91)
-shape = SubResource("RectangleShape2D_thyf1")
+visible = false
+position = Vector2(-0.20000002, 7.8)
+scale = Vector2(1, -0.91)
+shape = SubResource("CapsuleShape2D_k5oul")
 disabled = true
 
 [node name="Climb_Collision" type="CollisionShape2D" parent="." unique_id=1631950212]
-position = Vector2(0, -6.735)
-scale = Vector2(0.99999976, 1.1199998)
-shape = SubResource("RectangleShape2D_k5oul")
+visible = false
+position = Vector2(0.3, -14.525)
+scale = Vector2(1, 1.12)
+shape = SubResource("CapsuleShape2D_c3373")
 disabled = true
 
 [node name="Camera2D" parent="." unique_id=51859799 instance=ExtResource("9_63l2h")]
@@ -597,10 +581,10 @@ texture = ExtResource("12_k5oul")
 
 [node name="Head_ray_cast" type="RayCast2D" parent="." unique_id=75552209]
 position = Vector2(0, -16.599998)
-target_position = Vector2(15, 0)
+target_position = Vector2(9.2, -1.9073486e-06)
 
 [node name="Waist_Ray_Cast" type="RayCast2D" parent="." unique_id=4120295]
-target_position = Vector2(15, 0)
+target_position = Vector2(10, 0)
 
 [node name="Label" type="Label" parent="." unique_id=1080145841]
 visible = false
@@ -610,9 +594,3 @@ offset_right = 17.2
 offset_bottom = -6.0
 scale = Vector2(0.335, 0.335)
 text = "(E)"
-
-[node name="Vertical_Ray_Cast" type="RayCast2D" parent="." unique_id=988402073]
-target_position = Vector2(0, -30.72)
-
-[node name="Down_Ray_Cast" type="RayCast2D" parent="." unique_id=396383463]
-target_position = Vector2(0, 18.13)

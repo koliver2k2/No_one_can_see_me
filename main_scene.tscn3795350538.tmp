@@ -27,31 +27,13 @@ position = Vector2(586.9047, 466.66666)
 scale = Vector2(3, 3)
 
 [node name="Player" parent="." unique_id=576746737 instance=ExtResource("2_d5x1h")]
-position = Vector2(8889.881, -3744.0474)
+position = Vector2(-26.785522, 439.88095)
 
 [node name="NPC_Human" parent="." unique_id=1413674258 instance=ExtResource("6_hq1ik")]
 position = Vector2(3320.238, 436.9048)
 
 [node name="Hook" parent="." unique_id=25486563 instance=ExtResource("6_nfk4m")]
-position = Vector2(2642.2617, -1112.4999)
-
-[node name="Hook3" parent="." unique_id=1400095663 instance=ExtResource("6_nfk4m")]
-position = Vector2(4690.476, -1669.6428)
-
-[node name="Hook4" parent="." unique_id=247900029 instance=ExtResource("6_nfk4m")]
-position = Vector2(4945.238, -2191.0713)
-
-[node name="Hook5" parent="." unique_id=1817605517 instance=ExtResource("6_nfk4m")]
-position = Vector2(207.7381, -1670.8333)
-
-[node name="Hook6" parent="." unique_id=1411960440 instance=ExtResource("6_nfk4m")]
-position = Vector2(8147.024, -2896.4285)
-
-[node name="Hook7" parent="." unique_id=1900875213 instance=ExtResource("6_nfk4m")]
-position = Vector2(6993.452, -1446.4285)
-
-[node name="Hook8" parent="." unique_id=1793725776 instance=ExtResource("6_nfk4m")]
-position = Vector2(8919.643, -4458.928)
+position = Vector2(89.88094, 1.1904761)
 
 [node name="Hook2" parent="." unique_id=53683737 instance=ExtResource("6_nfk4m")]
 position = Vector2(4681.5474, 224.40475)
@@ -60,10 +42,6 @@ position = Vector2(4681.5474, 224.40475)
 
 [node name="Trapdoor_Vertical" parent="." unique_id=968761239 instance=ExtResource("7_nfk4m")]
 position = Vector2(5521.428, 474.99997)
-script = null
-
-[node name="Narrow_Passage" type="Node2D" parent="." unique_id=354549924]
-position = Vector2(4540.476, -197.61905)
 
 [connection signal="player_entered_street_light" from="Street_Light" to="Player" method="_on_street_light_player_entered_street_light"]
 [connection signal="player_left_street_light" from="Street_Light" to="Player" method="_on_street_light_player_left_street_light"]
@@ -72,9 +50,5 @@ position = Vector2(4540.476, -197.61905)
 [connection signal="player_entered_light" from="NPC_Human" to="Player" method="_on_npc_human_player_entered_light"]
 [connection signal="player_left_light" from="NPC_Human" to="Player" method="_on_npc_human_player_left_light"]
 [connection signal="player_hooks_themselves" from="Hook" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook3" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook4" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook5" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook6" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook7" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook8" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_close_to_trapdoor" from="Trapdoor_Vertical" to="Player" method="_on_trapdoor_vertical_player_close_to_trapdoor"]
+[connection signal="player_not_close_to_trapdoor" from="Trapdoor_Vertical" to="Player" method="_on_trapdoor_vertical_player_not_close_to_trapdoor"]

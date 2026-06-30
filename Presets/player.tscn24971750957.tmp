@@ -535,7 +535,7 @@ radius = 6.7000003
 size = Vector2(16.700005, 19.01099)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5oul"]
-size = Vector2(12.805, 41.233)
+size = Vector2(16.800003, 25.892853)
 
 [sub_resource type="Gradient" id="Gradient_l8n6v"]
 offsets = PackedFloat32Array(0.06779661, 0.7669492)
@@ -559,23 +559,24 @@ modulate = Color(0.427493, 0.42749307, 0.42749307, 1)
 position = Vector2(0, -15.885)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_42l1d")
-animation = &"climb"
+animation = &"trapdoor_down"
 
 [node name="Main_Collision" type="CollisionShape2D" parent="." unique_id=2001270521]
 visible = false
 position = Vector2(0.3, -1.82)
 scale = Vector2(0.785, 1.18)
 shape = SubResource("CapsuleShape2D_njqtd")
-disabled = true
 
 [node name="Crouch_Collision" type="CollisionShape2D" parent="." unique_id=1747887563]
+visible = false
 position = Vector2(0, 7.35)
-scale = Vector2(0.65, -0.91)
+scale = Vector2(0.99999976, -0.9099999)
 shape = SubResource("RectangleShape2D_thyf1")
 disabled = true
 
 [node name="Climb_Collision" type="CollisionShape2D" parent="." unique_id=1631950212]
-position = Vector2(0, -6.735)
+visible = false
+position = Vector2(-1.9999995, -15.299993)
 scale = Vector2(0.99999976, 1.1199998)
 shape = SubResource("RectangleShape2D_k5oul")
 disabled = true
@@ -612,7 +613,7 @@ scale = Vector2(0.335, 0.335)
 text = "(E)"
 
 [node name="Vertical_Ray_Cast" type="RayCast2D" parent="." unique_id=988402073]
-target_position = Vector2(0, -30.72)
+target_position = Vector2(0, -30)
 
 [node name="Down_Ray_Cast" type="RayCast2D" parent="." unique_id=396383463]
 target_position = Vector2(0, 18.13)
