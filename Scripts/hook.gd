@@ -17,7 +17,7 @@ var climb_tween: Tween
 @export var climb_trapdoor_duration: float = 1.0
 
 func _ready() -> void:
-	get_tree().root.ready.connect(_find_player)
+	call_deferred("_find_player")
 	notification.visible = false
 
 func _process(_delta: float) -> void:

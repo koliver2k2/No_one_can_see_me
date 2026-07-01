@@ -7,17 +7,15 @@ const WALK_SPEED := 400
 const CLIMB_SPEED := WALK_SPEED / 2
 const JUMP_VELOCITY := -850
 
-var is_in_light = false
-var is_hidden = false
+@export var is_in_light = false
+@export var is_hidden = false
+@export var climb_trapdoor_down_duration: float = 1.0
+
 var used_interaction := false
 var is_climbing_trapdoor:= false
 var is_tile_trapdoor := false
-
 var climb_down_tween: Tween
-@export var climb_trapdoor_down_duration: float = 1.0
-
 var wall_direction := 0.0
-
 var sound := 0
 
 enum MOVEMENT_STATES {WALK, RUN, CROUCH, WALL}
@@ -231,27 +229,27 @@ func _check_for_trapdoor():
 			else:
 				is_tile_trapdoor = false
 		
-	if vertical_raycast.is_colliding():
-		var collider = vertical_raycast.get_collider()
-		
-		if collider is TileMapLayer:
-			var hit_point = vertical_raycast.get_collision_point()
-			var push_direction = vertical_raycast.target_position.normalized()
-			var tile_point = hit_point + (push_direction * 2.0)
-			
-			var map_coords = collider.local_to_map(collider.to_local(tile_point))
-			var tile_data = collider.get_cell_tile_data(map_coords)
-			
-			if (tile_data and tile_data.get_custom_data("is_trapdoor") == true):
-				trapdoor_hint.visible = true
-				is_tile_trapdoor = true
-				
-				if Input.is_action_just_pressed("interact"):
-					collider.set_cell(map_coords, 0, Vector2i(2, 0))
-					trapdoor_hint.visible = false
-					used_interaction = true
-			else:
-				is_tile_trapdoor = false
+	#if vertical_raycast.is_colliding():
+		#var collider = vertical_raycast.get_collider()
+		#
+		#if collider is TileMapLayer:
+			#var hit_point = vertical_raycast.get_collision_point()
+			#var push_direction = vertical_raycast.target_position.normalized()
+			#var tile_point = hit_point + (push_direction * 2.0)
+			#
+			#var map_coords = collider.local_to_map(collider.to_local(tile_point))
+			#var tile_data = collider.get_cell_tile_data(map_coords)
+			#
+			#if (tile_data and tile_data.get_custom_data("is_trapdoor") == true):
+				#trapdoor_hint.visible = true
+				#is_tile_trapdoor = true
+				#
+				#if Input.is_action_just_pressed("interact"):
+					#collider.set_cell(map_coords, 0, Vector2i(2, 0))
+					#trapdoor_hint.visible = false
+					#used_interaction = true
+			#else:
+				#is_tile_trapdoor = false
 
 	if down_raycast.is_colliding():
 		var collider = down_raycast.get_collider()
@@ -321,3 +319,6 @@ func _on_street_light_player_left_street_light() -> void:
 
 func _on_hook_player_hooks_themselves() -> void:
 	animated_sprite.play("grapple")
+
+func _on_collectible_player_collected_collectible() -> void:
+	pass # Replace with function body.

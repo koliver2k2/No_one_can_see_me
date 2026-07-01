@@ -13,10 +13,10 @@ const TIME_PER_STATE: float = 2.0
 @onready var seen_alert = $Seen_Alert
 @onready var heard_alert = $Heard_Alert
 
-@export var hearing_range: float = 2000.0
+@export var hearing_range: float = 500.0
 @export var flashlight_range: float = 1200.0
 @export var closest_range: float = 300.0
-@export var street_light_range: = 3200.0
+@export var street_light_range: = 2200.0
 var player: Node2D = null
 var is_player_in_light := false
 
@@ -44,7 +44,7 @@ func _ready() -> void:
 	add_child(state_timer)
 	state_timer.timeout.connect(_on_timer_timeout)
 	
-	get_tree().root.ready.connect(_find_player)
+	call_deferred("_find_player")
 	
 	flashlight.rotation = 70.0
 	seen_alert.visible = false
@@ -145,8 +145,8 @@ func _check_for_player_in_eyesight() -> void:
 	var distance_to_player: float = global_position.distance_to(player.global_position)
 	
 	if distance_to_player <= closest_range:
-		print("---")
-		print("game over...")
+		PlayerStats.collectibles = 0
+		get_tree().change_scene_to_file("res://Presets/game_over.tscn")
 
 func _check_for_player_in_flashlight_range() -> void:
 	if not player or player.is_hidden:

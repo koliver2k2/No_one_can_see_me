@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d31sicje34chf" path="res://Presets/hide_object.scn" id="5_hq1ik"]
 [ext_resource type="PackedScene" uid="uid://b8dtwrurrsm6v" path="res://Presets/npc_human.scn" id="6_hq1ik"]
 [ext_resource type="PackedScene" uid="uid://cr23srbt760yc" path="res://Presets/hook.scn" id="6_nfk4m"]
-[ext_resource type="PackedScene" uid="uid://dbr82gqxwkie0" path="res://Presets/trapdoor_vertical.scn" id="7_nfk4m"]
+[ext_resource type="PackedScene" uid="uid://cf8rxfsy4ljki" path="res://Presets/collectible.tscn" id="7_nfk4m"]
+[ext_resource type="PackedScene" uid="uid://btb1nhta3g6fs" path="res://Presets/finish.tscn" id="8_7ycvg"]
 [ext_resource type="PackedScene" uid="uid://cmxd5r02crh04" path="res://level/level_1.tscn" id="8_66tet"]
 
 [node name="Node2D" type="Node2D" unique_id=378275823]
@@ -16,65 +17,262 @@ position = Vector2(-299.4048, -363.09528)
 scale = Vector2(1, 0.871)
 
 [node name="Dark_Lighting" type="CanvasModulate" parent="." unique_id=882650761]
+visible = false
 color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
-[node name="Street_Light" parent="." unique_id=54597535 instance=ExtResource("4_d5x1h")]
-position = Vector2(1383.3333, 54.16667)
-scale = Vector2(2, 2)
+[node name="Player" parent="." unique_id=576746737 instance=ExtResource("2_d5x1h")]
+position = Vector2(92.85715, 283.92847)
+scale = Vector2(4, 4)
 
 [node name="Hide_Object" parent="." unique_id=1028959277 instance=ExtResource("5_hq1ik")]
+visible = false
 position = Vector2(586.9047, 466.66666)
 scale = Vector2(3, 3)
 
-[node name="Player" parent="." unique_id=576746737 instance=ExtResource("2_d5x1h")]
-position = Vector2(8889.881, -3744.0474)
+[node name="Lights" type="Node2D" parent="." unique_id=1144037514]
 
-[node name="NPC_Human" parent="." unique_id=1413674258 instance=ExtResource("6_hq1ik")]
-position = Vector2(3320.238, 436.9048)
+[node name="Street_Light" parent="Lights" unique_id=54597535 instance=ExtResource("4_d5x1h")]
+position = Vector2(2243.4524, 226.19048)
+scale = Vector2(2, 1.23)
 
-[node name="Hook" parent="." unique_id=25486563 instance=ExtResource("6_nfk4m")]
-position = Vector2(2642.2617, -1112.4999)
+[node name="Street_Light2" parent="Lights" unique_id=1808798675 instance=ExtResource("4_d5x1h")]
+position = Vector2(1188.0951, -1704.1665)
+scale = Vector2(3.19, 7.965)
 
-[node name="Hook3" parent="." unique_id=1400095663 instance=ExtResource("6_nfk4m")]
-position = Vector2(4690.476, -1669.6428)
+[node name="Street_Light3" parent="Lights" unique_id=39828875 instance=ExtResource("4_d5x1h")]
+position = Vector2(192.85713, -917.2619)
+scale = Vector2(1.8, 2.38)
 
-[node name="Hook4" parent="." unique_id=247900029 instance=ExtResource("6_nfk4m")]
+[node name="Street_Light4" parent="Lights" unique_id=1088231346 instance=ExtResource("4_d5x1h")]
+position = Vector2(49.404762, -1705.3572)
+scale = Vector2(1.8, 2.38)
+
+[node name="Street_Light5" parent="Lights" unique_id=441526925 instance=ExtResource("4_d5x1h")]
+position = Vector2(-314.2857, -4150.595)
+scale = Vector2(3.4, 3.775)
+
+[node name="Street_Light6" parent="Lights" unique_id=1061621192 instance=ExtResource("4_d5x1h")]
+position = Vector2(1085.7144, -4719.048)
+scale = Vector2(4.025, 4.755)
+
+[node name="Street_Light7" parent="Lights" unique_id=121905885 instance=ExtResource("4_d5x1h")]
+position = Vector2(2755.9521, -5159.524)
+scale = Vector2(2.01, 2.875)
+
+[node name="Street_Light8" parent="Lights" unique_id=1445097869 instance=ExtResource("4_d5x1h")]
+position = Vector2(4308.9277, -4832.738)
+scale = Vector2(2.37, 4.3)
+
+[node name="Street_Light9" parent="Lights" unique_id=1603710424 instance=ExtResource("4_d5x1h")]
+position = Vector2(5852.3804, -5372.619)
+scale = Vector2(1.745, 2.39)
+
+[node name="Street_Light10" parent="Lights" unique_id=378171475 instance=ExtResource("4_d5x1h")]
+position = Vector2(6987.5, -4495.237)
+scale = Vector2(1.745, 3.815)
+
+[node name="Street_Light11" parent="Lights" unique_id=1812033760 instance=ExtResource("4_d5x1h")]
+position = Vector2(8604.167, -4486.9043)
+scale = Vector2(1.745, 3.815)
+
+[node name="Street_Light18" parent="Lights" unique_id=1237518594 instance=ExtResource("4_d5x1h")]
+position = Vector2(8186.9043, -5497.0234)
+scale = Vector2(4.055, 2.94)
+
+[node name="Street_Light12" parent="Lights" unique_id=1420848554 instance=ExtResource("4_d5x1h")]
+position = Vector2(8419.047, -2930.357)
+scale = Vector2(2.01, 2.865)
+
+[node name="Street_Light13" parent="Lights" unique_id=1247233122 instance=ExtResource("4_d5x1h")]
+position = Vector2(6566.0713, -1477.3806)
+scale = Vector2(3.205, 5.675)
+
+[node name="Street_Light14" parent="Lights" unique_id=1411188311 instance=ExtResource("4_d5x1h")]
+position = Vector2(4949.405, 195.23804)
+scale = Vector2(1.455, 1.47)
+
+[node name="Street_Light15" parent="Lights" unique_id=1203530095 instance=ExtResource("4_d5x1h")]
+position = Vector2(3934.5237, -1692.262)
+scale = Vector2(2.345, 2.76)
+
+[node name="Street_Light16" parent="Lights" unique_id=2072952494 instance=ExtResource("4_d5x1h")]
+position = Vector2(4007.738, -3369.0474)
+scale = Vector2(5.27, 5.645)
+
+[node name="Street_Light17" parent="Lights" unique_id=1413871512 instance=ExtResource("4_d5x1h")]
+position = Vector2(1522.6189, -3145.238)
+scale = Vector2(3.06, 3.355)
+
+[node name="NPCs" type="Node2D" parent="." unique_id=890842017]
+
+[node name="NPC_Human" parent="NPCs" unique_id=1413674258 instance=ExtResource("6_hq1ik")]
+position = Vector2(2033.9287, 426.19046)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human2" parent="NPCs" unique_id=88499480 instance=ExtResource("6_hq1ik")]
+position = Vector2(4638.69, 429.76187)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human3" parent="NPCs" unique_id=661477900 instance=ExtResource("6_hq1ik")]
+position = Vector2(6717.2617, -234.52377)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human4" parent="NPCs" unique_id=1458948457 instance=ExtResource("6_hq1ik")]
+position = Vector2(4311.905, -1136.9048)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human5" parent="NPCs" unique_id=439941614 instance=ExtResource("6_hq1ik")]
+position = Vector2(3658.3328, -2135.119)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human6" parent="NPCs" unique_id=901642234 instance=ExtResource("6_hq1ik")]
+position = Vector2(1515.4761, -2461.9043)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human7" parent="NPCs" unique_id=1384037753 instance=ExtResource("6_hq1ik")]
+position = Vector2(-477.9762, -3360.7139)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human8" parent="NPCs" unique_id=1045633236 instance=ExtResource("6_hq1ik")]
+position = Vector2(961.3093, -3683.9285)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human9" parent="NPCs" unique_id=1619339702 instance=ExtResource("6_hq1ik")]
+position = Vector2(2741.6665, -4586.3096)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human10" parent="NPCs" unique_id=79543274 instance=ExtResource("6_hq1ik")]
+position = Vector2(3174.9998, -3922.0234)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human11" parent="NPCs" unique_id=2098512276 instance=ExtResource("6_hq1ik")]
+position = Vector2(6092.2617, -4920.833)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human12" parent="NPCs" unique_id=984014436 instance=ExtResource("6_hq1ik")]
+position = Vector2(8266.666, -4917.2617)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human13" parent="NPCs" unique_id=876582227 instance=ExtResource("6_hq1ik")]
+position = Vector2(6969.643, -3694.6428)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human14" parent="NPCs" unique_id=1174999692 instance=ExtResource("6_hq1ik")]
+position = Vector2(8582.737, -3687.5)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="NPC_Human15" parent="NPCs" unique_id=1109594531 instance=ExtResource("6_hq1ik")]
+position = Vector2(8110.119, -2361.9048)
+scale = Vector2(5.9999995, 5.9999995)
+
+[node name="Hooks" type="Node2D" parent="." unique_id=1083367956]
+
+[node name="Hook" parent="Hooks" unique_id=25486563 instance=ExtResource("6_nfk4m")]
+position = Vector2(2642.2617, -1112.4998)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Hook3" parent="Hooks" unique_id=1400095663 instance=ExtResource("6_nfk4m")]
+position = Vector2(4690.4756, -1669.6427)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Hook4" parent="Hooks" unique_id=247900029 instance=ExtResource("6_nfk4m")]
 position = Vector2(4945.238, -2191.0713)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Hook5" parent="." unique_id=1817605517 instance=ExtResource("6_nfk4m")]
-position = Vector2(207.7381, -1670.8333)
+[node name="Hook5" parent="Hooks" unique_id=1817605517 instance=ExtResource("6_nfk4m")]
+position = Vector2(207.7381, -1670.8331)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Hook6" parent="." unique_id=1411960440 instance=ExtResource("6_nfk4m")]
-position = Vector2(8147.024, -2896.4285)
+[node name="Hook6" parent="Hooks" unique_id=1411960440 instance=ExtResource("6_nfk4m")]
+position = Vector2(8147.0234, -2896.4282)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Hook7" parent="." unique_id=1900875213 instance=ExtResource("6_nfk4m")]
-position = Vector2(6993.452, -1446.4285)
+[node name="Hook7" parent="Hooks" unique_id=1900875213 instance=ExtResource("6_nfk4m")]
+position = Vector2(6993.4517, -1446.4285)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Hook8" parent="." unique_id=1793725776 instance=ExtResource("6_nfk4m")]
-position = Vector2(8919.643, -4458.928)
+[node name="Hook8" parent="Hooks" unique_id=1793725776 instance=ExtResource("6_nfk4m")]
+position = Vector2(8919.642, -4458.9277)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Hook2" parent="." unique_id=53683737 instance=ExtResource("6_nfk4m")]
-position = Vector2(4681.5474, 224.40475)
+[node name="Hook9" parent="Hooks" unique_id=996437514 instance=ExtResource("6_nfk4m")]
+position = Vector2(3163.6902, 225.59521)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Horizontal_Trapdoor" type="Node2D" parent="." unique_id=94578294]
+[node name="Hook10" parent="Hooks" unique_id=1239963489 instance=ExtResource("6_nfk4m")]
+position = Vector2(4684.524, 225.59523)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Trapdoor_Vertical" parent="." unique_id=968761239 instance=ExtResource("7_nfk4m")]
-position = Vector2(5521.428, 474.99997)
-script = null
+[node name="Hook11" parent="Hooks" unique_id=1553790604 instance=ExtResource("6_nfk4m")]
+position = Vector2(3658.3333, -3751.1904)
+scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Narrow_Passage" type="Node2D" parent="." unique_id=354549924]
-position = Vector2(4540.476, -197.61905)
+[node name="Hook12" parent="Hooks" unique_id=2097765543 instance=ExtResource("6_nfk4m")]
+position = Vector2(8908.928, -4753.5713)
+scale = Vector2(0.99999994, 0.99999994)
 
-[connection signal="player_entered_street_light" from="Street_Light" to="Player" method="_on_street_light_player_entered_street_light"]
-[connection signal="player_left_street_light" from="Street_Light" to="Player" method="_on_street_light_player_left_street_light"]
+[node name="Collectibles" type="Node2D" parent="." unique_id=347533469]
+
+[node name="Collectible" parent="Collectibles" unique_id=4747193 instance=ExtResource("7_nfk4m")]
+position = Vector2(-419.64288, -2079.1665)
+
+[node name="Collectible2" parent="Collectibles" unique_id=1002263004 instance=ExtResource("7_nfk4m")]
+position = Vector2(-355.35715, -4433.9287)
+
+[node name="Collectible3" parent="Collectibles" unique_id=1284653187 instance=ExtResource("7_nfk4m")]
+position = Vector2(8293.453, -1225.5951)
+
+[node name="Collectible4" parent="Collectibles" unique_id=1995160433 instance=ExtResource("7_nfk4m")]
+position = Vector2(2523.8093, -85.71428)
+
+[node name="Collectible5" parent="Collectibles" unique_id=1294259697 instance=ExtResource("7_nfk4m")]
+position = Vector2(5986.3096, 463.0952)
+
+[node name="Finish" parent="." unique_id=2059370886 instance=ExtResource("8_7ycvg")]
+position = Vector2(9685.119, -5020.2383)
+
 [connection signal="player_entered_hide" from="Hide_Object" to="Player" method="_on_hide_object_player_entered_hide"]
 [connection signal="player_left_hide" from="Hide_Object" to="Player" method="_on_hide_object_player_left_hide"]
-[connection signal="player_entered_light" from="NPC_Human" to="Player" method="_on_npc_human_player_entered_light"]
-[connection signal="player_left_light" from="NPC_Human" to="Player" method="_on_npc_human_player_left_light"]
-[connection signal="player_hooks_themselves" from="Hook" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook3" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook4" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook5" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook6" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook7" to="Player" method="_on_hook_player_hooks_themselves"]
-[connection signal="player_hooks_themselves" from="Hook8" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_entered_street_light" from="Lights/Street_Light" to="Player" method="_on_street_light_player_entered_street_light"]
+[connection signal="player_left_street_light" from="Lights/Street_Light" to="Player" method="_on_street_light_player_left_street_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human2" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human2" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human3" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human3" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human4" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human4" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human5" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human5" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human6" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human6" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human7" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human7" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human8" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human8" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human9" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human9" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human10" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human10" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human11" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human11" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human12" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human12" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human13" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human13" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human14" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human14" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_entered_light" from="NPCs/NPC_Human15" to="Player" method="_on_npc_human_player_entered_light"]
+[connection signal="player_left_light" from="NPCs/NPC_Human15" to="Player" method="_on_npc_human_player_left_light"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook3" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook4" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook5" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook6" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook7" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook8" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook9" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook10" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook11" to="Player" method="_on_hook_player_hooks_themselves"]
+[connection signal="player_hooks_themselves" from="Hooks/Hook12" to="Player" method="_on_hook_player_hooks_themselves"]

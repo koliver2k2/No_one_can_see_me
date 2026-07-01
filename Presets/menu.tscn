@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cxe3mbe8mtdkw"]
+
+[ext_resource type="Texture2D" uid="uid://cgv5gc3qyx3dh" path="res://1 Backgrounds/3/Night/1.png" id="1_dy1rh"]
+[ext_resource type="Script" uid="uid://bu5qr5fgf3ket" path="res://Scripts/menu.gd" id="1_xwrlv"]
+[ext_resource type="Texture2D" uid="uid://byx53cnrebdbj" path="res://1 Backgrounds/3/Night/2.png" id="2_4lvd4"]
+[ext_resource type="Texture2D" uid="uid://c7w7w81600vjh" path="res://1 Backgrounds/3/Night/3.png" id="3_f66po"]
+[ext_resource type="Texture2D" uid="uid://dvl7wp7trnt7n" path="res://1 Backgrounds/3/Night/4.png" id="4_85g78"]
+[ext_resource type="Texture2D" uid="uid://1hjv53kwsmlq" path="res://1 Backgrounds/3/Night/5.png" id="5_nujgi"]
+
+[node name="Menu" type="Node2D" unique_id=1446494701]
+scale = Vector2(1.33, 1.33)
+script = ExtResource("1_xwrlv")
+
+[node name="Background" type="Node2D" parent="." unique_id=187880152]
+modulate = Color(0.3118496, 0.31184962, 0.3118496, 1)
+position = Vector2(961.99994, 539)
+scale = Vector2(3.35, 3.35)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=2024144972]
+texture = ExtResource("1_dy1rh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=1360852836]
+texture = ExtResource("2_4lvd4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=825770531]
+texture = ExtResource("3_f66po")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=1428022137]
+texture = ExtResource("4_85g78")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background" unique_id=1940068564]
+texture = ExtResource("5_nujgi")
+
+[node name="Label" type="Label" parent="." unique_id=1679275689]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 575.0
+offset_top = 9.0
+offset_right = 714.0
+offset_bottom = 32.0
+grow_horizontal = 2
+scale = Vector2(5.14, 5.14)
+text = "Shadow of Ninbot"
+horizontal_alignment = 1
+
+[node name="Play_Button" type="Button" parent="." unique_id=1173306919]
+offset_left = 889.0
+offset_top = 390.0
+offset_right = 930.0
+offset_bottom = 421.0
+scale = Vector2(4, 4)
+text = "Play"
+
+[node name="Setting_Button" type="Button" parent="." unique_id=85366228]
+offset_left = 834.0
+offset_top = 552.0
+offset_right = 904.0
+offset_bottom = 583.0
+scale = Vector2(4, 4)
+text = "Settings"
+
+[node name="Credits_Button" type="Button" parent="." unique_id=315076152]
+offset_left = 853.0
+offset_top = 717.0
+offset_right = 916.0
+offset_bottom = 748.0
+scale = Vector2(4, 4)
+text = "Credits"
+
+[connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Setting_Button" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Credits_Button" to="." method="_on_credits_button_pressed"]

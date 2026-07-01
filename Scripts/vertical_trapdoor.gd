@@ -9,7 +9,7 @@ var crouch_player: float = 420.0
 var counter: int = 1
 
 func _ready() -> void:
-	_find_player()
+	call_deferred("_find_player")
 
 func _process(delta):
 	distance_to_player = global_position.distance_to(player.global_position)

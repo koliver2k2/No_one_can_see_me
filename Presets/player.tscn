@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dts82un268jry" path="res://Ninja_Assets/ninja_run_4x.png" id="7_njqtd"]
 [ext_resource type="Texture2D" uid="uid://c67byr1vojuty" path="res://Ninja_Assets/ninja_walk_4x.png" id="8_njqtd"]
 [ext_resource type="PackedScene" uid="uid://bffr6x7hoa5w1" path="res://Presets/player_cam.scn" id="9_63l2h"]
+[ext_resource type="Script" uid="uid://8huh8osw8tnw" path="res://Scripts/ui.gd" id="12_c3373"]
 [ext_resource type="Texture2D" uid="uid://dfv6rkca4htc2" path="res://NPC_Assets/sound.png" id="12_k5oul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3g6fk"]
@@ -553,6 +554,14 @@ collision_layer = 2
 slide_on_ceiling = false
 safe_margin = 0.1
 script = ExtResource("1_63tfn")
+
+[node name="UI" type="Label" parent="." unique_id=765930679]
+offset_left = -200.40001
+offset_top = -115.6
+offset_right = -94.40001
+offset_bottom = -92.6
+text = "Collectibles: 0"
+script = ExtResource("12_c3373")
 
 [node name="Animated_Texture" type="AnimatedSprite2D" parent="." unique_id=30701586]
 modulate = Color(0.427493, 0.42749307, 0.42749307, 1)

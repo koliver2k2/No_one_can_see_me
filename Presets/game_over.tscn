@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dsr8vfcsqdkdn"]
+
+[ext_resource type="Script" uid="uid://d06wbo563x86k" path="res://Scripts/game_over.gd" id="1_aew5r"]
+[ext_resource type="Texture2D" uid="uid://cgv5gc3qyx3dh" path="res://1 Backgrounds/3/Night/1.png" id="2_enevm"]
+[ext_resource type="Texture2D" uid="uid://byx53cnrebdbj" path="res://1 Backgrounds/3/Night/2.png" id="3_vtoka"]
+[ext_resource type="Texture2D" uid="uid://c7w7w81600vjh" path="res://1 Backgrounds/3/Night/3.png" id="4_umdpp"]
+[ext_resource type="Texture2D" uid="uid://dvl7wp7trnt7n" path="res://1 Backgrounds/3/Night/4.png" id="5_yq2xw"]
+[ext_resource type="Texture2D" uid="uid://1hjv53kwsmlq" path="res://1 Backgrounds/3/Night/5.png" id="6_woott"]
+
+[node name="Node2D" type="Node2D" unique_id=396532215]
+scale = Vector2(1.455, 1.455)
+script = ExtResource("1_aew5r")
+
+[node name="Background" type="Node2D" parent="." unique_id=934707572]
+modulate = Color(0.3118496, 0.31184962, 0.3118496, 1)
+position = Vector2(882.4742, 497.59442)
+scale = Vector2(3.095, 3.095)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1493566403]
+texture = ExtResource("2_enevm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=1431936463]
+texture = ExtResource("3_vtoka")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Background" unique_id=2078949387]
+texture = ExtResource("4_umdpp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Background" unique_id=641036797]
+texture = ExtResource("5_yq2xw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Background" unique_id=973348175]
+texture = ExtResource("6_woott")
+
+[node name="Label" type="Label" parent="." unique_id=402089321]
+offset_left = 699.0
+offset_top = 190.0
+offset_right = 791.0
+offset_bottom = 213.0
+scale = Vector2(4, 4)
+text = "Game Over!"
+
+[node name="Play_Again_Btn" type="Button" parent="." unique_id=1957346997]
+offset_left = 705.0
+offset_top = 388.0
+offset_right = 792.0
+offset_bottom = 419.0
+scale = Vector2(4, 4)
+text = "Play again"
+
+[node name="Main_Menu_Btn" type="Button" parent="." unique_id=1919284238]
+offset_left = 691.0
+offset_top = 615.0
+offset_right = 787.0
+offset_bottom = 646.0
+scale = Vector2(4, 4)
+text = "Main menu"
+
+[connection signal="pressed" from="Play_Again_Btn" to="." method="_on_play_again_btn_pressed"]
+[connection signal="pressed" from="Main_Menu_Btn" to="." method="_on_main_menu_btn_pressed"]
